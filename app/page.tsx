@@ -30,6 +30,7 @@ export default function Home() {
       <div className="overflow-x-hidden">
       <Footer />
       </div>
-    </div> //target="_blank"  rel="noopener noreferrer"       
+    </div> 
+    //target="_blank"  rel="noopener noreferrer"       
   );
 }
