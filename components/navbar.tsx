@@ -16,7 +16,7 @@ export default function Navbar() {
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-1 md:flex">
           <button className="text-md m-4 rounded font-semibold hover:font-bold">Sign up</button>
-          <button className="text-md rounded-full bg-sky-600 px-8 font-bold transition hover:scale-105 hover:bg-sky-700">Log in</button>
+          <button className="text-md rounded-full bg-white px-8 py-2 font-bold text-black transition hover:scale-105">Log in</button>
         </nav>
 
         <button
