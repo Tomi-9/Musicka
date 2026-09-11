@@ -69,7 +69,7 @@ export function MediaPlayer() {
           </div>
           <div className="hidden items-center gap-2 sm:flex">
             <span className="font-mono text-[10px] text-zinc-500">0:00</span>
-            <Slider aria-label="Song progress" defaultValue={[0]} max={100} step={1} className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-track]]:bg-zinc-700 [&_[data-slot=slider-range]]:bg-zinc-100 [&_[data-slot=slider-thumb]]:size-3" />
+            <Slider aria-label="Song progress" defaultValue={[0]} max={100} step={1} className="flex-1 [&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-track]]:bg-zinc-700 [&_[data-slot=slider-range]]:bg-zinc-100 [&_[data-slot=slider-thumb]]:size-3 [&_[data-slot=slider-thumb]]:border-zinc-100 [&_[data-slot=slider-thumb]]:bg-zinc-100" />
             <span className="font-mono text-[10px] text-zinc-500">3:16</span>
           </div>
         </div>
