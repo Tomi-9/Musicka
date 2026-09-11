@@ -1,6 +1,8 @@
 import Footer from "@/components/footer";
 import { MediaPlayer } from "@/components/ui/mediaplayer";
 import { AlbumCard } from "@/components/ui/albumcard";
+import { ArtistCard } from "@/components/ui/artistcard";
+import { musicans } from "@/app/database/placeholder-data";
 
 export default function Home() {
   return (
@@ -15,6 +17,19 @@ export default function Home() {
               <AlbumCard />
               <AlbumCard />
               <AlbumCard />
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="artists-heading" className="w-full">
+          <h2 id="artists-heading" className="mb-5 text-2xl font-bold text-zinc-100 sm:text-3xl">
+            Artists
+          </h2>
+          <div className="w-full overflow-x-auto pb-3">
+            <div className="flex min-w-max gap-5">
+              {musicans.map((musican) => (
+                <ArtistCard key={musican.id} name={musican.name} imageUrl={musican.image_url} />
+              ))}
             </div>
           </div>
         </section>
