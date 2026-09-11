@@ -12,8 +12,8 @@ export default function Home() {
           <h1 id="songs-heading" className="mb-5 text-2xl font-bold text-zinc-100 sm:text-3xl">
             Songs
           </h1>
-          <div className="w-full overflow-x-auto pb-3">
-            <div className="flex min-w-max gap-5">
+          <div className="w-full overflow-hidden pb-3">
+            <div className="flex flex-wrap gap-5">
               <AlbumCard />
               <AlbumCard />
               <AlbumCard />
@@ -25,8 +25,8 @@ export default function Home() {
           <h2 id="artists-heading" className="mb-5 text-2xl font-bold text-zinc-100 sm:text-3xl">
             Artists
           </h2>
-          <div className="w-full overflow-x-auto pb-3">
-            <div className="flex min-w-max gap-5">
+          <div className="w-full overflow-hidden pb-3">
+            <div className="flex flex-wrap gap-5">
               {musicans.map((musican) => (
                 <ArtistCard key={musican.id} name={musican.name} imageUrl={musican.image_url} />
               ))}

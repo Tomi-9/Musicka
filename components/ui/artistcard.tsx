@@ -18,7 +18,6 @@ export function ArtistCard({ name, imageUrl }: ArtistCardProps) {
         />
       </div>
       <h3 className="mt-3 w-full truncate font-semibold text-zinc-100">{name}</h3>
-      <p className="text-sm text-zinc-400">Artist</p>
     </article>
   );
 }
