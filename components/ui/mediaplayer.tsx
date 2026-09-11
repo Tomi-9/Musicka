@@ -3,9 +3,7 @@
 import { useState } from 'react'
 import {
   Heart,
-  ListMusic,
   Maximize2,
-  MonitorSpeaker,
   Pause,
   Play,
   Repeat2,
@@ -71,20 +69,14 @@ export function MediaPlayer() {
           </div>
           <div className="hidden items-center gap-2 sm:flex">
             <span className="font-mono text-[10px] text-zinc-500">0:00</span>
-            <Slider aria-label="Song progress" defaultValue={[0]} max={100} step={1} className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3" />
+            <Slider aria-label="Song progress" defaultValue={[0]} max={100} step={1} className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-track]]:bg-zinc-700 [&_[data-slot=slider-range]]:bg-zinc-100 [&_[data-slot=slider-thumb]]:size-3" />
             <span className="font-mono text-[10px] text-zinc-500">3:16</span>
           </div>
         </div>
 
         <div className="hidden items-center justify-end gap-4 text-zinc-400 sm:flex sm:min-w-52 sm:flex-1">
-          <button type="button" aria-label="Connect to a device" className="transition-colors hover:text-zinc-100">
-            <MonitorSpeaker size={17} strokeWidth={1.5} />
-          </button>
-          <button type="button" aria-label="Open queue" className="transition-colors hover:text-zinc-100">
-            <ListMusic size={17} strokeWidth={1.5} />
-          </button>
           <Volume1 size={18} strokeWidth={1.5} />
-          <Slider aria-label="Volume" defaultValue={[70]} max={100} step={1} className="w-20 [&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3" />
+          <Slider aria-label="Volume" defaultValue={[70]} max={100} step={1} className="w-20 [&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-track]]:bg-zinc-700 [&_[data-slot=slider-range]]:bg-zinc-100 [&_[data-slot=slider-thumb]]:size-3" />
           <button type="button" aria-label="Fullscreen player" className="transition-colors hover:text-zinc-100">
             <Maximize2 size={16} strokeWidth={1.5} />
           </button>
