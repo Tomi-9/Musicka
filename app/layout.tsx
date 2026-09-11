@@ -30,8 +30,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
         </div>
         {children}
-      </body>
         <Analytics />
+      </body>
     </html>
   );
 }
