@@ -21,4 +21,11 @@ const musicans = [
 },
 ];
 
-export { musicans };
+const sidebars = [
+  {id: '0', button: 'Home', href: ''},
+  {id: '1', button: 'Search', href: ''},
+  {id: '2', button: 'Playlists', href: ''},
+  {id: '3', button: 'Favourites', href: ''},
+];
+
+export { musicans, sidebars };
