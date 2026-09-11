@@ -1,51 +1,95 @@
 'use client'
 
-import { useState } from 'react';
-//import { MusicSlider } from '@/components/ui/seekslider';
-import { Slider } from '@/components/ui/slider'
+import { useState } from 'react'
 import {
-    Play,
-    Pause,
-    VolumeX,
-    SkipForward,
-    SkipBack,
-    Volume1,
-    Heart,
-} from 'lucide-react';
-
+  Heart,
+  ListMusic,
+  Maximize2,
+  MonitorSpeaker,
+  Pause,
+  Play,
+  Repeat2,
+  Shuffle,
+  SkipBack,
+  SkipForward,
+  Volume1,
+} from 'lucide-react'
+import { Slider } from '@/components/ui/slider'
 
 export function MediaPlayer() {
-    const [playing, setPlaying] = useState<boolean>(false);
-    const [favourite, setFavourite] = useState<boolean>(false);
+  const [playing, setPlaying] = useState(false)
+  const [favourite, setFavourite] = useState(false)
 
-    return (
-        <div className="bg-zinc-950 w-screen h-20 overflow-x-hidden">
-            <div className="flex flex-row gap-8 items-center justify-center">
-                <button
-                    onClick={() => setFavourite(!favourite)}>
-                 {favourite ? <Heart className="fill-[#dc2626] text-red-600 w-8 h-7" strokeWidth={1} /> : 
-                 <Heart className="w-8 h-7" strokeWidth={1} />}
-                </button>
-                <div className="flex flex-row gap-6 items-center justify-center">
-                    <SkipBack />
-                    <button
-                        onClick={() => setPlaying(!playing)}
-                    >
-                        {playing ? <Pause className="w-14 h-14 fill-[#09090b] bg-white rounded-full p-3" strokeWidth={1} /> : <Play className="w-14 h-14 fill-[#09090b] bg-white rounded-full p-3" />}
-                    </button>
-                    <SkipForward className="w-7 h-7" />
-                </div>
-                <div><Slider defaultValue={[33]} max={100} step={1} /> </div>
-                <Volume1 className="w-8 h-8" />
-            </div>
+  return (
+    <section
+      aria-label="Media player"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-zinc-800 bg-zinc-950/95 px-3 py-2 text-zinc-100 shadow-2xl backdrop-blur-md sm:px-5"
+    >
+      <div className="mx-auto flex min-h-16 max-w-screen-xl items-center gap-3 sm:gap-6">
+        <div className="flex min-w-0 flex-1 items-center gap-3 sm:min-w-52 sm:max-w-xs">
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-md bg-zinc-800 text-xs font-medium text-zinc-400">
+            ART
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-medium">Chaise Lounge</p>
+            <p className="truncate text-xs text-zinc-400">Wet Leg</p>
+          </div>
+          <button
+            type="button"
+            aria-label={favourite ? 'Remove from favourites' : 'Add to favourites'}
+            aria-pressed={favourite}
+            onClick={() => setFavourite((value) => !value)}
+            className="ml-auto shrink-0 rounded-full p-2 text-zinc-400 transition-colors hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          >
+            <Heart className={favourite ? 'fill-red-600 text-red-600' : ''} size={18} strokeWidth={1.5} />
+          </button>
         </div>
-    );
-};
 
-/* <Play />
-<Pause />
-<VolumeX className=""/>
-<SkipForward />
-<SkipBack />
-<Volume1 />
-<Heart /> */
+        <div className="flex flex-1 flex-col gap-1 sm:max-w-2xl">
+          <div className="flex items-center justify-center gap-4">
+            <button type="button" aria-label="Shuffle" className="hidden text-zinc-400 transition-colors hover:text-zinc-100 sm:block">
+              <Shuffle size={16} strokeWidth={1.5} />
+            </button>
+            <button type="button" aria-label="Previous track" className="text-zinc-300 transition-colors hover:text-zinc-100">
+              <SkipBack size={18} fill="currentColor" />
+            </button>
+            <button
+              type="button"
+              aria-label={playing ? 'Pause' : 'Play'}
+              aria-pressed={playing}
+              onClick={() => setPlaying((value) => !value)}
+              className="flex size-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-950 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+            >
+              {playing ? <Pause size={19} fill="currentColor" /> : <Play className="ml-0.5" size={19} fill="currentColor" />}
+            </button>
+            <button type="button" aria-label="Next track" className="text-zinc-300 transition-colors hover:text-zinc-100">
+              <SkipForward size={18} fill="currentColor" />
+            </button>
+            <button type="button" aria-label="Repeat" className="hidden text-zinc-400 transition-colors hover:text-zinc-100 sm:block">
+              <Repeat2 size={16} strokeWidth={1.5} />
+            </button>
+          </div>
+          <div className="hidden items-center gap-2 sm:flex">
+            <span className="font-mono text-[10px] text-zinc-500">0:00</span>
+            <Slider aria-label="Song progress" defaultValue={[0]} max={100} step={1} className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3" />
+            <span className="font-mono text-[10px] text-zinc-500">3:16</span>
+          </div>
+        </div>
+
+        <div className="hidden items-center justify-end gap-4 text-zinc-400 sm:flex sm:min-w-52 sm:flex-1">
+          <button type="button" aria-label="Connect to a device" className="transition-colors hover:text-zinc-100">
+            <MonitorSpeaker size={17} strokeWidth={1.5} />
+          </button>
+          <button type="button" aria-label="Open queue" className="transition-colors hover:text-zinc-100">
+            <ListMusic size={17} strokeWidth={1.5} />
+          </button>
+          <Volume1 size={18} strokeWidth={1.5} />
+          <Slider aria-label="Volume" defaultValue={[70]} max={100} step={1} className="w-20 [&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3" />
+          <button type="button" aria-label="Fullscreen player" className="transition-colors hover:text-zinc-100">
+            <Maximize2 size={16} strokeWidth={1.5} />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
