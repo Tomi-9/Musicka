@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="relative rounded">
+    <header className="relative z-50 rounded">
       <div className="flex min-h-20 flex-row items-center justify-between pr-2 pl-6 text-center">
         <Link href="/" className="text-3xl text-zinc-200" onClick={() => setIsMenuOpen(false)}>
           Musicka
@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav
         id="mobile-navigation"
         aria-label="Mobile navigation"
-        className={`${isMenuOpen ? "flex" : "hidden"} absolute top-full right-0 left-0 z-50 flex-col gap-1 border-b border-slate-200 bg-black p-3 md:hidden`}
+        className={`${isMenuOpen ? "flex" : "hidden"} fixed inset-x-0 top-20 bottom-0 z-40 flex-col gap-1 border-b border-slate-200 bg-black p-3 md:hidden`}
       >
         <button type="button" className="rounded-lg px-3 py-2 text-left font-bold text-white hover:bg-slate-400" onClick={() => setIsMenuOpen(false)}>
           Log in
